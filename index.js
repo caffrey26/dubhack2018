@@ -102,10 +102,11 @@ let response;
 		}
 	}
   }  
- if(received_message.payload.coordinates){
+ if(received_message.hasOwnProperty('payload')){
+	if(received_message.payload.hasOwnProperty('coordinates')){
 	response = {
 		"text": "Lattitude: "+received_message.payload.coordinates.lat + " Longitude: "+ received_message.payload.coordinates.long
-	}
+	}}
 } 
   // Sends the response message
   callSendAPI(sender_psid, response);    
