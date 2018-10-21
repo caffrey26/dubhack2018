@@ -107,14 +107,20 @@ let response;
 		let lyft_deeplink = "lyft://ridetype?id=lyft&destination[latitude]="+ received_message.attachments[0].payload.coordinates.lat +"&destination[longitude]="+ received_message.attachments[0].payload.coordinates.long;
 
 			
-	response = {"text": "Yayy!",
+	response = {
+       "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"What do you want to do next?",
+
 	 "buttons":[
 		{
             "type":"web_url",
             "url":lyft_deeplink,
             "title":"Book Lyft"
           }
-]	
+	]	
 	}}
 } 
   // Sends the response message
