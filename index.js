@@ -108,24 +108,22 @@ let response;
 
 			
 	response = {
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"What do you want to do next?",
-
-
-
-
-	 "buttons":[
-		{
-            "type":"web_url",
-            "url":lyft_deeplink,
-            "title":"Book Lyft"
-          }
-	]	
-	}}}
-}
+    	  "attachment":{
+      		"type":"template",
+      		  "payload":{
+        	     "template_type":"button",
+        	     "text":"What do you want to do next?",
+	 	     "buttons":[
+	  		{
+            		  "type":"web_url",
+            		  "url":"https://www.messenger.com",
+            		  "title":"Book Lyft"
+          		}
+		      ]
+		  }
+    	   }
+	}
+	}
 } 
   // Sends the response message
   callSendAPI(sender_psid, response);    
