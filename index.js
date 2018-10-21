@@ -91,7 +91,10 @@ let response;
     //  "text": `You sent a message asking for Lyft. Please share your location now`
     //}
 	response = {
-		"content_type": "location"
+		"text": `You sent a message asking for Lyft. Please share your location now`,
+		"quick_replies":[
+		{"content_type": "location"}
+		]
 	}
    }else{
 		response = {
