@@ -104,8 +104,8 @@ let response;
  if(received_message.hasOwnProperty('attachments')){
 	if(received_message.attachments[0].payload.hasOwnProperty('coordinates')){
 
-		let lyft_deeplink = "https://lyft://ridetype?id=lyft&destination[latitude]="+ received_message.attachments[0].payload.coordinates.lat +"&destination[longitude]="+ received_message.attachments[0].payload.coordinates.long;
-
+	//	let lyft_deeplink = "lyft://ridetype?id=lyft&destination[latitude]="+ received_message.attachments[0].payload.coordinates.lat +"&destination[longitude]="+ received_message.attachments[0].payload.coordinates.long;
+	let lyft_deeplink = "https://lyft.com/ride?id=lyft&pickup[latitude]=37.764728&pickup[longitude]=-122.422999&partner=YOUR_CLIENT_ID&destination[latitude]="+received_message.attachments[0].payload.coordinates.lat+"&destination[longitude]="+received_message.attachments[0].payload.coordinates.long;
 			
 	response = {
     	  "attachment":{
@@ -116,7 +116,7 @@ let response;
 	 	     "buttons":[
 	  		{
             		  "type":"web_url",
-            		  "url":lyft_deeplink,
+            		  "url":"http://www.facebook.com",
             		  "title":"Book Lyft"
           		}
 		      ]
