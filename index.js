@@ -122,7 +122,7 @@ let response;
 		      ]
 		  }
     	   }*/
-	"text": "Please paste this link in your browser: "+lyft_deeplink 
+	"text": lyft_deeplink 
 	}
 	}
 } 
