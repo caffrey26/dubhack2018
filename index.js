@@ -87,10 +87,13 @@ let response;
   if (received_message.text) {    
 	if(received_message.text.toUpperCase().includes("LYFT")){
     // Create the payload for a basic text message
-    response = {
-      "text": `You sent a message asking for Lyft. Please share your location now`,
-       "content_type":"location"
-    }}else{
+    //response = {
+    //  "text": `You sent a message asking for Lyft. Please share your location now`
+    //}
+	response = {
+		"content_type": "location"
+	}
+   }else{
 		response = {
 			"text": `You sent a message without Lyft`
 		}
