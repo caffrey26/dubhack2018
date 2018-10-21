@@ -108,11 +108,14 @@ let response;
 
 			
 	response = {
-       "attachment":{
+    "attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
         "text":"What do you want to do next?",
+
+
+
 
 	 "buttons":[
 		{
@@ -121,7 +124,8 @@ let response;
             "title":"Book Lyft"
           }
 	]	
-	}}
+	}}}
+}
 } 
   // Sends the response message
   callSendAPI(sender_psid, response);    
