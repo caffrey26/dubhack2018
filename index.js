@@ -104,7 +104,7 @@ let response;
  if(received_message.hasOwnProperty('attachments')){
 	if(received_message.attachments[0].payload.hasOwnProperty('coordinates')){
 	response = {
-		"text": "Lattitude: "+received_message.payload.coordinates.lat + " Longitude: "+ received_message.payload.coordinates.long
+		"text": "Lattitude: "+received_message.attachments[0].payload.coordinates.lat + " Longitude: "+ received_message.attachments[0].payload.coordinates.long
 	}}
 } 
   // Sends the response message
