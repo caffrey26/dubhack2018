@@ -103,8 +103,12 @@ let response;
   }  
  if(received_message.hasOwnProperty('attachments')){
 	if(received_message.attachments[0].payload.hasOwnProperty('coordinates')){
+
+		let lyft_deeplink = "lyft://ridetype?id=lyft&destination[latitude]="+ received_message.attachments[0].payload.coordinates.lat +"&destination[longitude]="+ received_message.attachments[0].payload.coordinates.long;
+
+			
 	response = {
-		"text": "Lattitude: "+received_message.attachments[0].payload.coordinates.lat + " Longitude: "+ received_message.attachments[0].payload.coordinates.long
+		"text": lyft_deeplink
 	}}
 } 
   // Sends the response message
