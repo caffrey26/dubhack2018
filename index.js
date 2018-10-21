@@ -108,7 +108,13 @@ let response;
 
 			
 	response = {
-		"text": lyft_deeplink
+	 "buttons":[
+		{
+            "type":"web_url",
+            "url":lyft_deeplink,
+            "title":"Book Lyft"
+          }
+]	
 	}}
 } 
   // Sends the response message
