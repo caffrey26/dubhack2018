@@ -80,7 +80,7 @@ app.get('/webhook', (req, res) => {
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-console.log("--------------->"  + received_message);	
+console.log("--------------->"  + received_message.toString());	
 console.log("--------------END----------");
 let response;
 
