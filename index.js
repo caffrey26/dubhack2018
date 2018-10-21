@@ -80,8 +80,6 @@ app.get('/webhook', (req, res) => {
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-console.log("--------------->"  + received_message.toString());	
-console.log("--------------END----------");
 let response;
 
   // Check if the message contains text
@@ -103,8 +101,8 @@ let response;
 		}
 	}
   }  
- if(received_message.hasOwnProperty('payload')){
-	if(received_message.payload.hasOwnProperty('coordinates')){
+ if(received_message.hasOwnProperty('attachments')){
+	if(received_message.attachments[0].payload.hasOwnProperty('coordinates')){
 	response = {
 		"text": "Lattitude: "+received_message.payload.coordinates.lat + " Longitude: "+ received_message.payload.coordinates.long
 	}}
