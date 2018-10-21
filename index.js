@@ -81,7 +81,7 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
 	
-ponse;
+let response;
 
   // Check if the message contains text
   if (received_message.text) {    
@@ -94,6 +94,7 @@ ponse;
   
   // Sends the response message
   callSendAPI(sender_psid, response);    
+}
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
@@ -109,5 +110,22 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
+     // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "qs": { "access_token": PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('message sent!')
+    } else {
+      console.error("Unable to send message:" + err);
+    }
+  }); 
+
+
+
+
 
 }
