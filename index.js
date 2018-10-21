@@ -90,38 +90,39 @@ let response;
     //  "text": `You sent a message asking for Lyft. Please share your location now`
     //}
 	response = {
-		"text": `You sent a message asking for Lyft. Please share your location now`,
+		"text": `You sent a message asking for Lyft. Please share your location now.`,
 		"quick_replies":[
 		{"content_type": "location"}
 		]
 	}
    }else{
 		response = {
-			"text": `You sent a message without Lyft`
+			"text": `You sent a message without Lyft.`
 		}
 	}
   }  
  if(received_message.hasOwnProperty('attachments')){
 	if(received_message.attachments[0].payload.hasOwnProperty('coordinates')){
 
-	//	let lyft_deeplink = "lyft://ridetype?id=lyft&destination[latitude]="+ received_message.attachments[0].payload.coordinates.lat +"&destination[longitude]="+ received_message.attachments[0].payload.coordinates.long;
-	let lyft_deeplink = "https://lyft.com/ride?id=lyft&pickup[latitude]=37.764728&pickup[longitude]=-122.422999&partner=YOUR_CLIENT_ID&destination[latitude]="+received_message.attachments[0].payload.coordinates.lat+"&destination[longitude]="+received_message.attachments[0].payload.coordinates.long;
+		let lyft_deeplink = "lyft://ridetype?id=lyft&destination[latitude]="+ received_message.attachments[0].payload.coordinates.lat +"&destination[longitude]="+ received_message.attachments[0].payload.coordinates.long;
+//	let lyft_deeplink = "https://lyft.com/ride?id=lyft&pickup[latitude]=37.764728&pickup[longitude]=-122.422999&partner=YOUR_CLIENT_ID&destination[latitude]="+received_message.attachments[0].payload.coordinates.lat+"&destination[longitude]="+received_message.attachments[0].payload.coordinates.long;
 			
 	response = {
-    	  "attachment":{
+    	 /* "attachment":{
       		"type":"template",
       		  "payload":{
         	     "template_type":"button",
-        	     "text":"What do you want to do next?",
+       	     "text":"What do you want to do next?",
 	 	     "buttons":[
 	  		{
             		  "type":"web_url",
-            		  "url":"http://www.facebook.com",
+            		  "url":"http://www.facebook.com,
             		  "title":"Book Lyft"
           		}
 		      ]
 		  }
-    	   }
+    	   }*/
+	"text": "Please paste this link in your browser: "+lyft_deeplink; 
 	}
 	}
 } 
